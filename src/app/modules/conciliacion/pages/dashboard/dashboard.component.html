@@ -1,0 +1,130 @@
+<div class="dashboard">
+
+  <div class="dashboard-title">
+    Dashboard Conciliación
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+
+    <div class="stat-card" *ngFor="let stat of stats">
+
+      <div class="stat-title">
+        {{stat.titulo}}
+      </div>
+
+      <div class="stat-value">
+        {{stat.valor}}
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- WIDGETS -->
+  <div class="widgets">
+
+    <!-- ACCIONES RAPIDAS -->
+    <div class="stat-card">
+
+      <div class="stat-title">
+        Acciones rápidas
+      </div>
+
+      <div class="actions">
+
+        <button
+          class="action-btn"
+          routerLink="/conciliacion/layouts"
+        >
+          <span class="icon">⚙</span>
+          Crear Layout
+        </button>
+
+        <button
+          class="action-btn"
+          routerLink="/conciliacion/files"
+        >
+          <span class="icon">📄</span>
+          Ver Archivos
+        </button>
+
+        <button
+          class="action-btn"
+          routerLink="/conciliacion/generate"
+        >
+          <span class="icon">⚡</span>
+          Generar TXT
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ESTADO MOTOR -->
+    <div class="stat-card">
+
+      <div class="stat-title">
+        Estado Motor TXT
+      </div>
+
+      <div class="stat-value status-ok">
+        Activo
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ACTIVIDAD RECIENTE -->
+  <div class="activity">
+
+    <div class="stat-card">
+
+      <div class="stat-title">
+        Últimos archivos generados
+      </div>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Layout</th>
+            <th>Fecha</th>
+            <th>Registros</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td class="uuid">TXT-001</td>
+            <td>AMEX_LAYOUT</td>
+            <td>2026-03-08</td>
+            <td>45</td>
+          </tr>
+
+          <tr>
+            <td class="uuid">TXT-002</td>
+            <td>VISA_LAYOUT</td>
+            <td>2026-03-08</td>
+            <td>12</td>
+          </tr>
+
+          <tr>
+            <td class="uuid">TXT-003</td>
+            <td>MC_LAYOUT</td>
+            <td>2026-03-07</td>
+            <td>22</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

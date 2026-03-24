@@ -1,0 +1,63 @@
+/* ===== FLOTANTES ===== */
+
+@keyframes floatY {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(60px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatYReverse {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-60px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatX {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(60px); }
+  100% { transform: translateX(0px); }
+}
+
+/* ===== FADE ENTRADA ===== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== GLOW SIDEBAR ===== */
+
+@keyframes sidebarGlow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(60px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== PULSO LOGO ===== */
+
+@keyframes pulseLogo {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ===== SUBMENU ===== */
+
+@keyframes submenuFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

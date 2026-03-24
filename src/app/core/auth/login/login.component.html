@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+  <!-- fondo animado -->
+  <div class="bg-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- card login -->
+  <div class="login-card">
+    <div class="logo-container">
+      <h1 class="logo-text">NEXUS</h1>
+      <p class="subtitle">Plataforma de herramientas</p>
+    </div>
+
+    <form class="login-form" (ngSubmit)="login()">
+      <div class="input-container">
+        <label>Usuario</label>
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Ingresa tu usuario"
+        />
+      </div>
+
+      <div class="input-container">
+        <label>Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+        />
+      </div>
+
+      <button type="submit" class="login-button">Iniciar sesión</button>
+    </form>
+
+    <div class="login-footer">Nexus Platform © 2026</div>
+  </div>
+</div>

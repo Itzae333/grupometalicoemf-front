@@ -1,0 +1,92 @@
+<div class="bulk-container">
+
+  <div class="bulk-header">
+
+    <div>
+      <h1>Cuentas de Clientes</h1>
+      <p>Cuentas permitidas para conciliación</p>
+    </div>
+
+    <button class="primary-btn" (click)="create()">
+      Nueva Cuenta
+    </button>
+
+  </div>
+
+  <div class="bulk-table">
+
+    <table>
+
+      <thead>
+        <tr>
+
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Cuenta</th>
+          <th>Alias</th>
+          <th>Status</th>
+          <th style="width:120px">Acciones</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let row of data">
+
+          <td class="uuid">
+            {{row.id}}
+          </td>
+
+          <td>
+            {{row.cliente}}
+          </td>
+
+          <td>
+            {{row.cuenta}}
+          </td>
+
+          <td>
+            {{row.alias}}
+          </td>
+
+          <td>
+
+            <span
+              class="status"
+              [ngClass]="row.status === 'ACTIVE' ? 'FINISHED':'ERROR'"
+            >
+              {{row.status}}
+            </span>
+
+          </td>
+
+          <td class="actions">
+
+            <button
+              mat-icon-button
+              class="icon-small"
+              (click)="edit(row)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button
+              mat-icon-button
+              class="icon-small"
+              (click)="delete(row)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

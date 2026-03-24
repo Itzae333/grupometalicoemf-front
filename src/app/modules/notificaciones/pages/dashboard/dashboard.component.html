@@ -1,0 +1,56 @@
+<div class="dashboard">
+
+  <div class="dashboard-title">
+    Dashboard Notificaciones
+  </div>
+
+  <div class="stats">
+
+    <div class="stat-card" *ngFor="let stat of stats">
+
+      <div class="stat-title">
+        {{stat.titulo}}
+      </div>
+
+      <div class="stat-value">
+        {{stat.valor}}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="widgets">
+
+    <div class="stat-card">
+
+      <div class="stat-title">
+        Acciones rápidas
+      </div>
+
+      <button class="action-btn" routerLink="/notificaciones/create">
+      <span class="icon">⬇</span>
+      Crear evento de notificación
+    </button>
+     
+
+    </div>
+
+    <div class="stat-card">
+
+      <div class="stat-title">
+        Estado del servicio
+      </div>
+
+      <div class="stat-value">
+        Activo
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 🔥 Aquí se renderizan los componentes hijos -->
+  <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="dashboard">
+
+  <!-- TITULO -->
+  <div class="dashboard-title">
+    Bienvenido a  🚀
+  </div>
+
+  <!-- KPIs -->
+  <div class="stats">
+    <app-stat-card title="Ventas del Mes" value="$120,000"></app-stat-card>
+    <app-stat-card title="Ventas del Año" value="$1,450,000"></app-stat-card>
+    <app-stat-card title="Clientes Activos" value="85"></app-stat-card>
+    <app-stat-card title="Productos" value="320"></app-stat-card>
+  </div>
+
+  <!-- GRÁFICAS -->
+  <div class="widgets">
+
+    <div class="widget-card">
+      <div class="widget-title">📈 Ventas por Mes</div>
+      <app-activity-chart></app-activity-chart>
+    </div>
+
+    <div class="widget-card">
+      <div class="widget-title">📊 Ventas por Año</div>
+      <app-year-chart></app-year-chart>
+    </div>
+
+  </div>
+
+  <!-- SEGUNDA FILA -->
+  <div class="widgets second-row">
+
+    <div class="widget-card">
+      <div class="widget-title">🏆 Mejores Clientes</div>
+
+      <table class="table-dark">
+        <tr *ngFor="let c of clientes">
+          <td>{{c.nombre}}</td>
+          <td>{{c.total | currency}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="widget-card">
+      <div class="widget-title">📦 Producto Más Vendido</div>
+
+      <div class="top-product">
+        <div class="product-name">{{producto.nombre}}</div>
+        <div class="product-qty">{{producto.cantidad}} vendidos</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

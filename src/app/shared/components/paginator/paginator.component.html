@@ -1,0 +1,89 @@
+<div class="paginator">
+
+  <!-- INFO -->
+  <div class="page-info">
+    {{ startItem }} – {{ endItem }} de {{ totalElements }}
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="page-controls">
+
+    <!-- FIRST -->
+    <button
+      mat-icon-button
+      class="icon-small"
+      (click)="first()"
+      [disabled]="!hasPrevious"
+    >
+      <mat-icon>first_page</mat-icon>
+    </button>
+
+    <!-- PREVIOUS -->
+    <button
+      mat-icon-button
+      class="icon-small"
+      (click)="prev()"
+      [disabled]="!hasPrevious"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <!-- NUMEROS -->
+    <ng-container *ngFor="let p of pages">
+
+      <button
+        *ngIf="p !== '...'; else dots"
+        class="page-number"
+        [class.active]="p === page"
+        (click)="changePage($any(p))"
+      >
+        {{ $any(p) + 1 }}
+      </button>
+
+      <ng-template #dots>
+        <span class="dots">...</span>
+      </ng-template>
+
+    </ng-container>
+
+    <!-- NEXT -->
+    <button
+      mat-icon-button
+      class="icon-small"
+      (click)="next()"
+      [disabled]="!hasNext"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+
+    <!-- LAST -->
+    <button
+      mat-icon-button
+      class="icon-small"
+      (click)="last()"
+      [disabled]="!hasNext"
+    >
+      <mat-icon>last_page</mat-icon>
+    </button>
+
+  </div>
+
+  <!-- PAGE SIZE -->
+  <div class="page-size">
+
+    <span class="rows-label">Rows</span>
+
+    <div class="size-chips">
+      <button
+        *ngFor="let s of sizes"
+        class="size-chip"
+        [class.active]="s === size"
+        (click)="changeSize(s)"
+      >
+        {{ s }}
+      </button>
+    </div>
+
+  </div>
+
+</div>

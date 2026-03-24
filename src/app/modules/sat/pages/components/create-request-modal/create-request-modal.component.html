@@ -1,0 +1,80 @@
+<div class="notification-create">
+  <div class="bg-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="content">
+    <div class="header">
+      <h1>Nueva Solicitud SAT</h1>
+      <p>Configura los parámetros para generar la descarga masiva</p>
+    </div>
+
+    <div class="card">
+      <form [formGroup]="form" class="grid">
+        <div>
+          <label>RFC solicitante</label>
+          <input formControlName="rfc" placeholder="AAA010101AAA" />
+        </div>
+
+        <div>
+          <label>Tipo solicitud</label>
+          <select formControlName="type">
+            <option value="CFDI">CFDI</option>
+            <option value="METADATA">Metadata</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Fecha inicio</label>
+
+          <mat-form-field appearance="outline" class="date-field">
+            <input
+              matInput
+              [matDatepicker]="startPicker"
+              formControlName="startDate"
+              placeholder="Selecciona fecha"
+            />
+
+            <mat-datepicker-toggle matSuffix [for]="startPicker">
+            </mat-datepicker-toggle>
+
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <label>Fecha fin</label>
+
+          <mat-form-field appearance="outline" class="date-field">
+            <input
+              matInput
+              [matDatepicker]="endPicker"
+              formControlName="endDate"
+              placeholder="Selecciona fecha"
+            />
+
+            <mat-datepicker-toggle matSuffix [for]="endPicker">
+            </mat-datepicker-toggle>
+
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <div
+        style="
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+          margin-top: 20px;
+        "
+      >
+        <button class="btn-secondary" mat-dialog-close>Cancelar</button>
+
+        <button class="btn-primary" (click)="create()">Crear solicitud</button>
+      </div>
+    </div>
+  </div>
+</div>

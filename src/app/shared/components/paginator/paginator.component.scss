@@ -1,0 +1,198 @@
+.paginator {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: nowrap;
+
+  margin-top: 14px;
+  padding: 10px 12px;
+
+  border-top: 1px solid #1f2937;
+
+  font-size: .75rem;
+  color: #9ca3af;
+
+}
+
+/* INFO */
+
+.page-info {
+
+  font-size: .72rem;
+  opacity: .8;
+
+  white-space: nowrap;
+
+}
+
+/* CONTROLES */
+
+.page-controls {
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  flex-wrap: nowrap;
+
+}
+
+/* PAGINATION NUMBERS */
+
+.page-number {
+
+  min-width: 28px;
+  height: 28px;
+
+  border-radius: 6px;
+
+  border: 1px solid #1f2937;
+
+  background: rgba(17,24,39,.85);
+
+  color: #9ca3af;
+
+  font-size: .72rem;
+
+  cursor: pointer;
+
+  transition: all .15s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.page-number:hover {
+
+  background: rgba(37,99,235,.25);
+  color: white;
+
+}
+
+.page-number.active {
+
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+
+}
+
+/* DOTS */
+
+.dots {
+
+  padding: 0 6px;
+  font-size: .8rem;
+  opacity: .6;
+
+}
+
+/* ICON BUTTONS */
+
+.icon-small {
+
+  width: 28px !important;
+  height: 28px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.icon-small mat-icon {
+
+  font-size: 18px;
+
+}
+
+.icon-small:hover {
+
+  background: rgba(37,99,235,.15);
+  border-radius: 6px;
+
+}
+
+/* ROW SIZE */
+
+.page-size {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  white-space: nowrap;
+
+}
+
+/* label */
+
+.rows-label {
+
+  font-size: .72rem;
+  opacity: .7;
+
+}
+
+/* chips container */
+
+.size-chips {
+
+  display: flex;
+  gap: 6px;
+
+}
+
+/* chip */
+
+.size-chip {
+
+  min-width: 30px;
+  height: 26px;
+
+  border-radius: 6px;
+
+  border: 1px solid #1f2937;
+
+  background: rgba(17,24,39,.85);
+
+  color: #9ca3af;
+
+  font-size: .72rem;
+
+  cursor: pointer;
+
+  padding: 0 6px;
+
+  transition: all .15s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* hover */
+
+.size-chip:hover {
+
+  background: rgba(37,99,235,.25);
+  color: white;
+
+}
+
+/* active */
+
+.size-chip.active {
+
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+
+}

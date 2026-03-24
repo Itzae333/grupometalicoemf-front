@@ -1,0 +1,40 @@
+<div class="sidebar">
+  <!-- LOGO -->
+  <div class="logo">
+    <span class="logo-icon">⚡</span>
+    <span class="logo-text"></span>
+  </div>
+
+  <!-- MENU -->
+  <div class="menu">
+    <div class="menu-section" *ngFor="let item of menu">
+      <!-- ITEM PRINCIPAL -->
+      <div
+        class="menu-item"
+        (click)="item.ruta ? navegar(item.ruta) : toggle(item)"
+        [class.active]="item.abierto"
+      >
+        <div class="menu-left">
+          <span class="icon">{{ item.icono }}</span>
+          <span class="text">{{ item.nombre }}</span>
+        </div>
+
+        <span *ngIf="item.submenu" class="arrow">
+          {{ item.abierto ? "▾" : "▸" }}
+        </span>
+      </div>
+
+      <!-- SUBMENU -->
+      <div class="submenu" *ngIf="item.submenu && item.abierto">
+        <a
+          *ngFor="let sub of item.submenu"
+          class="submenu-item"
+          [routerLink]="sub.ruta"
+          routerLinkActive="active"
+        >
+          {{ sub.nombre }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

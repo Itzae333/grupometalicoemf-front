@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+/* ===== GLASS EFFECT ===== */
+
+@mixin glass-card {
+  background: $color-bg-card;
+  backdrop-filter: blur(12px);
+  border: 1px solid $color-border;
+}
+
+/* ===== BOTON NEXUS ===== */
+
+@mixin nexus-button {
+
+  background: $gradient-button;
+  border-radius: $radius-md;
+
+  color: $color-text-primary;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-blue-soft;
+  }
+}
+
+/* ===== INPUT NEXUS ===== */
+
+@mixin nexus-input {
+
+  background: $color-bg-primary;
+
+  border: 1px solid $color-border;
+
+  border-radius: $radius-md;
+
+  color: $color-text-primary;
+
+  padding: 12px;
+
+  transition: $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: $shadow-blue-soft;
+  }
+
+}

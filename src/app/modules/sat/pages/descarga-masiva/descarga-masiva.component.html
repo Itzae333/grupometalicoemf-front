@@ -1,0 +1,81 @@
+<div class="bulk-container">
+  <!-- HEADER -->
+  <div class="bulk-header">
+    <div>
+      <h1>Descarga Masiva SAT</h1>
+      <p>Administración de solicitudes de descarga</p>
+    </div>
+
+    <button class="primary-btn" (click)="openCreateDialog()">
+      ➕ Nueva solicitud
+    </button>
+  </div>
+
+  <!-- TABLA -->
+  <div class="bulk-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>RFC</th>
+          <th>Periodo</th>
+          <th>Tipo</th>
+          <th>Estado</th>
+          <th style="width: 110px">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td class="uuid">{{ row.uuidBulkSat }}</td>
+
+          <td>{{ row.requesterRfc }}</td>
+
+          <td>{{ row.startDate }} → {{ row.endDate }}</td>
+
+          <td>{{ row.requestType }}</td>
+
+          <td>
+            <span class="status" [ngClass]="row.status">
+              {{ row.status }}
+            </span>
+          </td>
+
+          <td class="actions">
+            <!-- CONSULTAR -->
+            <button
+              mat-icon-button
+              class="icon-small"
+              (click)="consult(row)"
+              matTooltip="Consultar estado"
+            >
+              <mat-icon>sync</mat-icon>
+            </button>
+
+            <!-- DESCARGAR -->
+            <button
+              *ngIf="row.status === 'FINISHED'"
+              mat-icon-button
+              class="icon-small"
+              (click)="download(row)"
+              matTooltip="Descargar archivos"
+            >
+              <mat-icon>download</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <app-paginator
+      [page]="response.page"
+      [size]="response.size"
+      [totalPages]="response.totalPages"
+      [totalElements]="response.totalElements"
+      [hasNext]="response.hasNext"
+      [hasPrevious]="response.hasPrevious"
+      (pageChange)="loadPage($event)"
+      (sizeChange)="changeSize($event)"
+    >
+    </app-paginator>
+  </div>
+</div>

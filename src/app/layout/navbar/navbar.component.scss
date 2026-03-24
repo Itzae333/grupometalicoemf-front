@@ -1,0 +1,202 @@
+:host {
+  display: block;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  position: relative;
+
+  background: radial-gradient(circle at top, #0f172a, #020617);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid #1f2937;
+
+  overflow: hidden;
+
+  z-index: 10;
+
+}
+
+/* ===== GLOW ANIMADO ===== */
+
+.navbar::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  background: rgba(37,99,235,.25);
+
+  filter: blur(120px);
+
+  top: -150px;
+  right: -100px;
+
+  animation: navbarGlow 12s infinite ease-in-out;
+
+}
+
+/* animación glow */
+
+@keyframes navbarGlow {
+
+  0% { transform: translateY(0px); }
+
+  50% { transform: translateY(40px); }
+
+  100% { transform: translateY(0px); }
+
+}
+
+/* ===== NOMBRE SISTEMA ===== */
+
+.system-name {
+
+  color: white;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  font-size: 18px;
+
+  text-shadow: 0 0 12px rgba(59,130,246,.7);
+
+  position: relative;
+  z-index: 2;
+
+}
+
+/* ===== BUSCADOR ===== */
+
+.search-input {
+
+  width: 280px;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid #1f2937;
+
+  background: #020617;
+
+  color: white;
+
+  transition: all .25s ease;
+
+  position: relative;
+  z-index: 2;
+
+}
+
+.search-input::placeholder {
+
+  color: #6b7280;
+
+}
+
+.search-input:focus {
+
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 12px rgba(37,99,235,.6);
+
+}
+
+/* ===== LADO DERECHO ===== */
+
+.navbar-right {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  position: relative;
+  z-index: 2;
+
+}
+
+/* ===== BOTONES ===== */
+
+.icon-button {
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #020617;
+
+  cursor: pointer;
+
+  transition: all .25s ease;
+
+  border: 1px solid #1f2937;
+
+}
+
+.icon-button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(37,99,235,.35);
+
+  background: rgba(37,99,235,.15);
+
+}
+
+/* ===== AVATAR ===== */
+
+.user-avatar {
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg,#2563eb,#3b82f6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-weight: bold;
+
+  box-shadow: 0 8px 20px rgba(37,99,235,.35);
+
+  transition: all .25s ease;
+
+}
+
+.user-avatar:hover {
+
+  transform: scale(1.05);
+
+  box-shadow: 0 10px 25px rgba(37,99,235,.45);
+
+}

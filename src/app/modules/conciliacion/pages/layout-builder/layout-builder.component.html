@@ -1,0 +1,184 @@
+<div class="notification-create" [formGroup]="form">
+  <div class="bg-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="content">
+    <!-- HEADER -->
+    <div class="header">
+      <h1>⚙ Layout Builder</h1>
+      <p>Configuración dinámica de archivos TXT</p>
+    </div>
+
+    <!-- CONFIGURACION -->
+    <div class="card">
+      <h2>Layout Configuration</h2>
+
+      <div class="grid">
+        <div class="input-container">
+          <label>Layout Name</label>
+          <input formControlName="name" />
+        </div>
+
+        <div class="input-container" *ngIf="form.value.extension === 'txt'">
+          <label>Separator</label>
+
+          <input formControlName="separator" (input)="generatePreview()" />
+        </div>
+
+        <div class="input-container">
+          <label>Format</label>
+
+          <select formControlName="extension" (change)="generatePreview()">
+            <option value="txt">TXT (Fixed Width)</option>
+            <option value="csv">CSV (Comma Separated)</option>
+            <option value="xlsx">XLSX (Excel)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIELDS -->
+    <div class="card">
+      <div class="template-header">
+        <h2>Fields Configuration</h2>
+
+        <button class="btn-primary" (click)="addField()">➕ Add Field</button>
+      </div>
+
+      <div
+        class="fields-container"
+        formArrayName="fields"
+        cdkDropList
+        [cdkDropListData]="fields.controls"
+        cdkDropListLockAxis="y"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="field-card"
+          *ngFor="let f of fields.controls; let i = index"
+          [formGroupName]="i"
+          cdkDrag
+        >
+          <div class="field-header">
+            <div class="field-title">
+              <span class="drag-handle" cdkDragHandle>☰</span>
+              Field {{ i + 1 }}
+            </div>
+
+            <button class="btn-danger small" (click)="removeField(i)">
+              Remove
+            </button>
+          </div>
+
+          <div class="field-grid">
+            <div>
+              <label>Field Name</label>
+              <input formControlName="fieldName" (input)="generatePreview()" />
+            </div>
+
+            <div>
+              <label>Source Field</label>
+              <input
+                formControlName="sourceField"
+                (input)="generatePreview()"
+              />
+            </div>
+
+            <div>
+              <label>Type</label>
+              <select formControlName="dataType" (change)="generatePreview()">
+                <option value="STRING">STRING</option>
+                <option value="NUMBER">NUMBER</option>
+                <option value="DATE">DATE</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Length</label>
+              <input
+                type="number"
+                formControlName="length"
+                (input)="generatePreview()"
+              />
+            </div>
+
+            <div>
+              <label>Padding</label>
+              <select
+                formControlName="paddingType"
+                (change)="generatePreview()"
+              >
+                <option value="LEFT">LEFT</option>
+                <option value="RIGHT">RIGHT</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Pad Char</label>
+              <input
+                formControlName="paddingCharacter"
+                (input)="generatePreview()"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="card preview-card">
+      <div class="preview-header">
+        <h2>Preview ({{ form.value.extension | uppercase }})</h2>
+
+        <button class="btn-secondary" (click)="generatePreview()">
+          Refresh
+        </button>
+      </div>
+
+      <div class="preview-info">
+        Lines: {{ previewLines.length }} | Characters per line: {{ lineLength }}
+      </div>
+
+      <!-- TXT / CSV -->
+      <div
+        class="preview-box"
+        *ngIf="form.value.extension === 'txt' || form.value.extension === 'csv'"
+      >
+        <pre *ngFor="let line of previewLines">{{ line }}</pre>
+      </div>
+
+      <!-- XLS -->
+      <div
+        class="preview-table-container"
+        *ngIf="
+          form.value.extension === 'xls' || form.value.extension === 'xlsx'
+        "
+      >
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th *ngFor="let f of fields.value">
+                {{ f.fieldName }}
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let row of mockData">
+              <td *ngFor="let f of fields.value">
+                {{ row[f.sourceField] }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SAVE -->
+
+    <button class="save-btn" (click)="save()">Guardar Layout</button>
+  </div>
+</div>

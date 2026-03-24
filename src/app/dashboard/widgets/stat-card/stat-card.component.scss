@@ -1,0 +1,82 @@
+.stat-card {
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  background: rgba(17,24,39,.85);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid #1f2937;
+
+  transition: all .25s ease;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+/* glow interno */
+
+.stat-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  background: rgba(37,99,235,.25);
+
+  filter: blur(100px);
+
+  top: -80px;
+  right: -80px;
+
+  opacity: 0;
+
+  transition: .3s;
+
+}
+
+.stat-card:hover::before {
+
+  opacity: 1;
+
+}
+
+.stat-card:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow: 0 12px 35px rgba(37,99,235,.35);
+
+}
+
+/* titulo */
+
+.stat-title {
+
+  color: #9ca3af;
+
+  font-size: 14px;
+
+  letter-spacing: .5px;
+
+}
+
+/* valor grande */
+
+.stat-value {
+
+  font-size: 28px;
+  font-weight: 700;
+
+  margin-top: 10px;
+
+  text-shadow: 0 0 8px rgba(59,130,246,.6);
+
+}

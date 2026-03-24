@@ -1,0 +1,72 @@
+<div class="bulk-container">
+
+  <div class="bulk-header">
+    <div>
+      <h1>Archivos generados</h1>
+      <p>Descarga de archivos TXT generados por conciliación</p>
+    </div>
+  </div>
+
+  <div class="bulk-table">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Layout</th>
+          <th>Fecha</th>
+          <th>Registros</th>
+          <th>Status</th>
+          <th style="width:100px">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let row of data">
+
+          <td class="uuid">
+            {{row.id}}
+          </td>
+
+          <td>
+            {{row.layout}}
+          </td>
+
+          <td>
+            {{row.createdAt}}
+          </td>
+
+          <td>
+            {{row.records}}
+          </td>
+
+          <td>
+            <span class="status" [ngClass]="row.status">
+              {{row.status}}
+            </span>
+          </td>
+
+          <td class="actions">
+
+            <button
+              *ngIf="row.status==='FINISHED'"
+              mat-icon-button
+              class="icon-small"
+              (click)="download(row)"
+            >
+              <mat-icon>download</mat-icon>
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
