@@ -110,8 +110,8 @@ export class SidebarComponent implements OnInit {
       roles: ['ADMIN', 'ENC'],
       submenu: [
         {
-          nombre: 'Inventario',
-          ruta: '/reportes/inventario',
+          nombre: 'Ventas',
+          ruta: '/reportes/list',
           icono: '📦', // stock
           roles: ['ADMIN', 'ENC'],
         },

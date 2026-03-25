@@ -1,0 +1,36 @@
+<div class="modal-overlay" >
+
+  <div class="modal">
+
+    <div class="header">
+      <h1>Detalle de Venta</h1>
+      <button class="icon-small" (click)="close()">✖</button>
+    </div>
+
+    <div class="table">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let d of data">
+            <td>{{ d.nombreProducto }}</td>
+            <td>{{ d.cantidad }}</td>
+            <td>${{ d.precioUnitario }}</td>
+            <td>${{ d.subtotal }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

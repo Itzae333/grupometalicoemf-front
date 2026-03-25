@@ -1,0 +1,141 @@
+<div class="container">
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>
+        {{
+          view === "VENTAS" ? "Sincronización Ventas" : "Sincronización Cortes"
+        }}
+      </h1>
+    </div>
+  </div>
+
+  <!-- 🔥 TOGGLE -->
+  <div class="view-toggle">
+    <button [class.active]="view === 'VENTAS'" (click)="cambiarVista('VENTAS')">
+      Ventas
+    </button>
+
+    <button [class.active]="view === 'CORTES'" (click)="cambiarVista('CORTES')">
+      Cortes
+    </button>
+  </div>
+
+  <!-- 🔥 FILTROS -->
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="Buscar..."
+      [(ngModel)]="filters.busqueda"
+      (keyup.enter)="buscar()"
+    />
+
+    <select [(ngModel)]="filters.origen" (change)="buscar()">
+      <option value="">Todos</option>
+      <option value="VIRGEN">VIRGEN</option>
+      <option value="PUNTO_VENTA">PUNTO_VENTA</option>
+    </select>
+
+    <input type="date" [(ngModel)]="filters.fechaInicio" (change)="buscar()" />
+    <input type="date" [(ngModel)]="filters.fechaFin" (change)="buscar()" />
+
+    <button class="primary-btn" (click)="buscar()">Buscar</button>
+  </div>
+
+  <!-- 🔥 TABLA VENTAS -->
+  <div class="table" *ngIf="view === 'VENTAS'">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nota</th>
+          <th>Total</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Estatus</th>
+          <th>Intentos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td class="uuid">{{ row.id }}</td>
+          <td>{{ row.nota }}</td>
+          <td>{{ row.total | currency }}</td>
+          <td>{{ row.fechaHoraVenta | date: "short" }}</td>
+          <td>{{ row.nombreCliente }}</td>
+
+          <td>
+            <span class="status" [ngClass]="row.estatusSync">
+              {{ row.estatusSync }}
+            </span>
+          </td>
+
+          <td>{{ row.intentos }}</td>
+
+          <td class="actions">
+            <button class="icon-small" (click)="verDetalle(row)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+
+            <button class="icon-small" (click)="verPagos(row)">
+              <mat-icon>payments</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 🔥 TABLA CORTES -->
+  <div class="table" *ngIf="view === 'CORTES'">
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Total Efectivo</th>
+          <th>Total Tarjeta</th>
+          <th>Total Trasferencia</th>
+          <th>Total Cheques</th>
+          <th>Total Depositos</th>
+        <th>Total Por Pagar</th>
+        
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let row of data">
+        <td>{{ row.fechaHoraCorteCaja | date: "short" }}</td>
+       
+          <td>{{ row.totalEfectivo | currency }}</td>
+          <td>{{ row.totalTarjeta | currency }}</td>
+          <td>{{ row.totalTransferencia | currency }}</td>
+          <td>{{ row.totalCheque | currency }}</td>
+          <td>{{ row.totalDeposito | currency }}</td>
+          <td>{{ row.totalPorPagar | currency }}</td>
+
+
+          <td class="actions">
+            <button class="icon-small" (click)="verVentas(row)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 🔥 PAGINADOR -->
+  <app-paginator
+    [page]="response.page"
+    [size]="response.size"
+    [totalPages]="response.totalPages"
+    [totalElements]="response.totalElements"
+    [hasNext]="response.hasNext"
+    [hasPrevious]="response.hasPrevious"
+    (pageChange)="loadPage($event)"
+    (sizeChange)="changeSize($event)"
+  ></app-paginator>
+</div>

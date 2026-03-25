@@ -1,0 +1,361 @@
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+
+  }
+
+  p {
+
+    color: #9ca3af;
+    margin-top: 4px;
+
+  }
+
+}
+
+/* =========================
+   BOTON PRINCIPAL
+========================= */
+
+.primary-btn {
+
+  padding: 10px 16px;
+
+  border-radius: 10px;
+
+  border: 1px solid #1f2937;
+
+  background: linear-gradient(135deg,#2563eb,#3b82f6);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: .25s;
+
+}
+
+.primary-btn:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(37,99,235,.45);
+
+}
+
+/* =========================
+   CONTENEDOR TABLA
+========================= */
+
+.table {
+
+  background: rgba(17,24,39,.75);
+
+  border: 1px solid #1f2937;
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(12px);
+
+  max-height: 420px;
+
+  overflow-y: auto;
+  overflow-x: auto;
+
+}
+
+/* =========================
+   TABLA
+========================= */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: .80rem;
+
+}
+
+/* =========================
+   HEADER TABLA
+========================= */
+
+thead {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 5;
+
+  background: rgba(2,6,23,.95);
+
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+
+}
+
+th {
+
+  padding: 6px 10px;
+
+  text-align: left;
+
+  font-size: .72rem;
+
+  color: #9ca3af;
+
+  letter-spacing: .3px;
+
+}
+
+/* =========================
+   FILAS
+========================= */
+
+tbody tr {
+
+  height: 32px;
+
+  transition: background .15s;
+
+}
+
+tbody tr:hover {
+
+  background: rgba(59,130,246,.08);
+
+}
+
+/* =========================
+   CELDAS
+========================= */
+
+td {
+
+  padding: 4px 10px;
+
+  border-top: 1px solid #1f2937;
+
+  color: white;
+
+  font-size: .75rem;
+
+  line-height: 1.2;
+
+}
+
+/* =========================
+   UUID
+========================= */
+
+.uuid {
+
+  font-family: monospace;
+
+  color: #93c5fd;
+
+  font-size: .72rem;
+
+  letter-spacing: .3px;
+
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+
+  padding: 2px 8px;
+
+  border-radius: 14px;
+
+  font-size: .65rem;
+
+  font-weight: 600;
+
+}
+
+.status.FINISHED {
+
+  background: rgba(34,197,94,.2);
+
+  color: #4ade80;
+
+}
+
+.status.PENDING {
+
+  background: rgba(251,191,36,.2);
+
+  color: #facc15;
+
+}
+
+.status.ERROR {
+
+  background: rgba(239,68,68,.2);
+
+  color: #f87171;
+
+}
+
+/* =========================
+   ACCIONES
+========================= */
+
+.actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+}
+
+/* =========================
+   BOTONES MATERIAL
+========================= */
+
+.icon-small {
+
+  width: 24px !important;
+
+  height: 24px !important;
+
+  line-height: 24px !important;
+
+  padding: 0 !important;
+
+}
+
+/* ICONOS */
+
+.icon-small mat-icon {
+
+  font-size: 16px;
+
+  width: 16px;
+
+  height: 16px;
+
+}
+
+/* HOVER ACCION */
+
+.icon-small:hover {
+
+  background: rgba(37,99,235,.15);
+
+  border-radius: 6px;
+
+}
+
+/* =========================
+   SCROLLBAR PRO
+========================= */
+
+.bulk-table::-webkit-scrollbar {
+
+  height: 8px;
+  width: 8px;
+
+}
+
+.bulk-table::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+.bulk-table::-webkit-scrollbar-thumb {
+
+  background: #1f2937;
+
+  border-radius: 6px;
+
+}
+
+.bulk-table::-webkit-scrollbar-thumb:hover {
+
+  background: #374151;
+
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 12px;
+
+  input,
+  select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #1f2937;
+    background: #111827;
+    color: #e5e7eb;
+    font-size: .75rem;
+
+    &:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+  }
+
+  input[type="date"] {
+    color-scheme: dark;
+  }
+
+  button {
+    padding: 6px 12px;
+  }
+}
+
+.view-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  button {
+    padding: 6px 12px;
+    border: none;
+    background: #1f2937;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &.active {
+      background: #2563eb;
+    }
+  }
+}

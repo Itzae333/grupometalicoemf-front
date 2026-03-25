@@ -106,19 +106,48 @@
 
 }
 
-.icon-small mat-icon {
+/* FORZAR BOTONES DE ICONO */
 
-  font-size: 18px;
+.icon-small.mat-mdc-icon-button {
 
-}
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
 
-.icon-small:hover {
-
-  background: rgba(37,99,235,.15);
   border-radius: 6px;
+  border: 1px solid #1f2937;
+
+  background: rgba(17,24,39,.85) !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 
+/* ICONO */
+.icon-small.mat-mdc-icon-button mat-icon {
+  font-size: 18px !important;
+  color: #e5e7eb !important;
+}
+
+/* HOVER */
+.icon-small.mat-mdc-icon-button:hover {
+  background: rgba(37,99,235,.25) !important;
+}
+
+.icon-small.mat-mdc-icon-button:hover mat-icon {
+  color: #ffffff !important;
+}
+
+/* DISABLED (Angular le mete opacity, hay que quitarlo) */
+.icon-small.mat-mdc-icon-button[disabled] {
+  opacity: 1 !important;
+}
+
+.icon-small.mat-mdc-icon-button[disabled] mat-icon {
+  color: #4b5563 !important;
+}
 /* ROW SIZE */
 
 .page-size {

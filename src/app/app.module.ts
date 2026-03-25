@@ -19,6 +19,7 @@ import { MaterialModule } from './shared/material.module';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { YearChartComponent } from './dashboard/widgets/year-chart/year-chart.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { YearChartComponent } from './dashboard/widgets/year-chart/year-chart.co
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

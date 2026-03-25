@@ -72,12 +72,14 @@ export class PaginatorComponent {
   }
 
   get startItem(): number {
-    return this.page * this.size + 1;
-  }
+  if (this.totalElements === 0) return 0;
+  return this.page * this.size + 1;
+}
 
-  get endItem(): number {
-    return Math.min((this.page + 1) * this.size, this.totalElements);
-  }
+get endItem(): number {
+  if (this.totalElements === 0) return 0;
+  return Math.min((this.page + 1) * this.size, this.totalElements);
+}
 
   /* NUEVO */
   first() {

@@ -1,9 +1,13 @@
 <div class="paginator">
 
   <!-- INFO -->
-  <div class="page-info">
-    {{ startItem }} – {{ endItem }} de {{ totalElements }}
-  </div>
+  <div class="page-info" *ngIf="totalElements > 0">
+  {{ startItem }} – {{ endItem }} de {{ totalElements }}
+</div>
+
+<div class="page-info" *ngIf="totalElements === 0">
+  Sin registros
+</div>
 
   <!-- CONTROLES -->
   <div class="page-controls">
