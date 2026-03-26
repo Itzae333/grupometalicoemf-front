@@ -27,6 +27,16 @@
             <td>${{ d.subtotal }}</td>
           </tr>
         </tbody>
+         <tfoot>
+    <tr>
+      <td colspan="3" style="text-align: right; font-weight: bold;">
+        Total:
+      </td>
+      <td style="font-weight: bold;">
+        ${{ getTotal() }}
+      </td>
+    </tr>
+  </tfoot>
       </table>
 
     </div>

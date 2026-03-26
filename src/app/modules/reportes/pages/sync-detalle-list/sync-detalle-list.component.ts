@@ -15,4 +15,8 @@ constructor(
 close() {
     this.dialogRef.close();
   }
+
+  getTotal(): number {
+  return this.data.reduce((sum, item) => sum + (item.subtotal || 0), 0);
+}
 }

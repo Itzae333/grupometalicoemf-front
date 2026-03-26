@@ -367,4 +367,52 @@ td {
   background: #374151;
 
 }
+/* =========================
+   FOOTER TABLA (TOTAL)
+========================= */
 
+tfoot {
+
+  position: sticky;
+  bottom: 0;
+
+  z-index: 5;
+
+  background: rgba(2,6,23,.95);
+
+  box-shadow: 0 -2px 6px rgba(0,0,0,.35);
+
+}
+
+tfoot td {
+
+  padding: 6px 10px;
+
+  font-size: .78rem;
+
+  font-weight: 600;
+
+  color: #e5e7eb;
+
+  border-top: 1px solid #1f2937;
+
+}
+
+/* Alinear total a la derecha bonito */
+tfoot td:first-child {
+
+  text-align: right;
+
+  color: #9ca3af;
+
+}
+
+tfoot td:last-child {
+
+  color: #4ade80; // verde tipo éxito 🔥
+  font-weight: 700;
+
+}
+tfoot td:last-child {
+  font-size: .9rem;
+}
