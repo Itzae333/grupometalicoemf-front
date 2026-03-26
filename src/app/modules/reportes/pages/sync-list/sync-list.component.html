@@ -47,7 +47,7 @@
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          
           <th>Nota</th>
           <th>Total</th>
           <th>Fecha</th>
@@ -60,7 +60,7 @@
 
       <tbody>
         <tr *ngFor="let row of data">
-          <td class="uuid">{{ row.id }}</td>
+          
           <td>{{ row.nota }}</td>
           <td>{{ row.total | currency }}</td>
           <td>{{ row.fechaHoraVenta | date: "short" }}</td>
